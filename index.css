@@ -1,0 +1,48 @@
+.navbar{
+    width: 100%;
+    height: 4rem;
+    background-color: teal;
+    position: fixed;
+    top:0;
+    left: 0;
+    text-align: center;
+    padding-top: 1rem;
+}
+.navbar>input{
+    width: 350px;
+    padding: 10px;
+}
+.navbar>button{
+    padding: 8px;
+}
+.navbar>button:active{
+    background-color:aqua ;
+    border: none;
+}
+
+.container{
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   gap: 10px;
+   width: 80%;
+   margin: auto;
+   margin-top: 8rem;
+   text-align: center;
+}
+.container>h2{
+    width: fit-content;
+    text-align: center;
+}
+
+.container>div>img{
+    width: 80%;
+
+}
+.container>div:active{
+    box-shadow: 2px 2px 4px 4px blue;
+}
+
+
+
+
+/* 1 rem = 16px */

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+        }
+        #container>div{
+            margin-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>movie detail page</h2>
+    <button onclick="homepage()">Homepage</button>
+
+    <section id="container">
+
+    </section>
+    
+</body>
+
+<script>
+
+    let id = localStorage.getItem("movieId")
+    let API_KEY = "52b2051"
+    let container = document.getElementById("container")
+    // console.log(id)
+
+    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`)
+    .then(function (res){
+        return res.json()
+    })
+    .then(function (res){
+        console.log(res)
+        showData(res)
+    })
+    
+    function homepage(){
+        window.location.href = "index.html"
+    }
+    function showData(ele){
+        let div1 = document.createElement("div")
+        let div2 = document.createElement("div")
+        let img = document.createElement("img")
+        img.src = ele.Poster
+ 
+        let title = document.createElement("p")
+        title.innerHTML = `<b>Title : </b> ${ele.Title}`
+        
+        let year = document.createElement("p")
+        year.innerHTML = `<b>Year : </b> ${ele.Year}`
+        
+        let director = document.createElement("p")
+        director.innerHTML =  `<b>Director : </b> ${ele.Director}`
+         
+        let plot = document.createElement("p")
+        plot.innerHTML =  `<b>Plot : </b> ${ele.Plot}`
+      
+        div1.append(img , title , year , director)
+        div2.append(plot)
+        container.append(div1,div2)
+    }
+
+</script>
+</html>
